@@ -37,6 +37,14 @@ Feature: AmazonLogin
     And enter password "Test1234"
     Then End the test
 
+  @regression
+  Scenario: Bora_2 Verify correct password
+    When user click on SignIn button
+    Then SignIn page display
+    And enter email "Ahmed@gmail.com"
+    And enter password "TEST1234"
+    Then End the test
+    
   @testDemo
   Scenario Outline: Bora_2 Verify wrong infomation
     When user click on SignIn button

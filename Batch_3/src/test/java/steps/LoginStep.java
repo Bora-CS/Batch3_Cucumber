@@ -59,6 +59,8 @@ public class LoginStep {
 	@Then("email address textbox display")
 	public void email_address_textbox_display() {
 
+		int size = driver.findElements(By.id("ap_email")).size();
+		Assert.assertTrue("Email Address box is not display in the page!", size > 0);
 	}
 
 	@Then("End the test")
@@ -67,20 +69,12 @@ public class LoginStep {
 		driver.quit();
 	}
 
-	@Then("enter correct email")
-	public void enter_correct_email() {
-
-	}
-
-	@Then("enter correct password")
-	public void enter_correct_password() {
-
-	}
-
 	@Then("enter email {string}")
 	public void enter_email(String email) {
 
 		System.out.println("email address is: " + email);
+		driver.findElement(By.id("ap_email")).sendKeys(email);
+		driver.findElement(By.id("continue")).click();
 	}
 
 	@Then("enter password {string}")
