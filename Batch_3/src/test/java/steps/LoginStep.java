@@ -12,8 +12,11 @@ public class LoginStep {
 	
 	@Given("user in the Homapage")
 	public void user_in_the_Homapage() {
-
+		//For Mac user
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+		//For Windows user
+//		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+
 		driver = new ChromeDriver();
 
 		driver.get("https://www.amazon.com");
