@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginStep {
-	WebDriver driver;
+	static WebDriver driver;
 
 	@Given("user in the Homapage")
 	public void user_in_the_Homapage() {
