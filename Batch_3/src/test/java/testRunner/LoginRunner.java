@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/resources/AmamzonLogin.feature", 
 		glue = "steps", 
-		tags = {"@testDemo"},
+		tags = {"@smoke"},
 		dryRun = false)
 public class LoginRunner {
 
