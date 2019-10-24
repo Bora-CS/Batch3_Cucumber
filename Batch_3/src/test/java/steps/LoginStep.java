@@ -8,17 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utilityLibrary.Library;
 
-public class LoginStep {
-	static WebDriver driver;
+public class LoginStep extends Library{
 
 	@Given("user in the Homapage")
 	public void user_in_the_Homapage() {
-		// For Mac user
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-		// For Windows user
-//		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-		driver = new ChromeDriver();
 
 		driver.get("https://www.amazon.com/");
 		driver.manage().window().fullscreen();
@@ -65,8 +60,7 @@ public class LoginStep {
 
 	@Then("End the test")
 	public void end_the_test() {
-		driver.close();
-		driver.quit();
+		endTest();
 	}
 
 	@Then("enter email {string}")

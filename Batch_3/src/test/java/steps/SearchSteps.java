@@ -7,10 +7,10 @@ import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utilityLibrary.Library;
 
-public class SearchSteps {
+public class SearchSteps extends Library{
 
-	private WebDriver driver = LoginStep.driver;
 	@When("user type {string} in the searchBox")
 	public void user_type_in_the_searchBox(String searchTerm) {
 
