@@ -157,3 +157,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.DS_Store
+Batch_3/src/test/.DS_Store
