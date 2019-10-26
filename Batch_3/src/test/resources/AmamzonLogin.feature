@@ -22,14 +22,14 @@ Feature: AmazonLogin
   Background: 
     Given user in the Homapage
 
-  @smoke
+  @smoke @login
   Scenario: Bora_1 Verify login
     When user click on SignIn button
     Then SignIn page display
     And email address textbox display
     Then End the test
 
-  @regression
+  @regression @login
   Scenario: Bora_2 Verify wrong password
     When user click on SignIn button
     Then SignIn page display
@@ -37,7 +37,7 @@ Feature: AmazonLogin
     And enter password "Test1234"
     Then End the test
 
-  @regression
+  @regression @login
   Scenario: Bora_2 Verify correct password
     When user click on SignIn button
     Then SignIn page display
@@ -45,7 +45,7 @@ Feature: AmazonLogin
     And enter password "TEST1234"
     Then End the test
     
-  @testDemo
+  @testDemo @login
   Scenario Outline: Bora_2 Verify wrong infomation
     When user click on SignIn button
     Then SignIn page display

@@ -7,10 +7,10 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/plp.feature", 
+		features = {"src/test/resources"}, 
 		glue = "steps", 
-		tags = {"@testDemo"},
+		tags = {  "@pdp"},
 		dryRun = false)
-public class PLPRunner {
+public class RegressionRunner {
 
 }

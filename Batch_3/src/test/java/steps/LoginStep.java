@@ -2,9 +2,8 @@ package steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -62,6 +61,7 @@ public class LoginStep extends Library{
 	public void end_the_test() {
 		endTest();
 	}
+
 
 	@Then("enter email {string}")
 	public void enter_email(String email) {

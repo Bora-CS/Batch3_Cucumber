@@ -18,15 +18,15 @@ public class ProductListPage extends Library{
 		
 		WebElement dropdown = driver.findElement(By.id("s-result-sort-select"));
 		Select myselect = new Select(dropdown);
-		switch(sortType) {
-		case "lowToHigh":
+		switch(sortType.toLowerCase()) {
+		case "lowtohigh":
 			myselect.selectByValue("price-asc-rank");
 			break;
-		case "hithToLow":   //will fail here later
+		case "hightolow":   //will fail here later
 			myselect.selectByValue("price-desc-rank");
 			break;
 		default:
-			System.out.println("Given Sort type is missmatch: "+sortType);
+			System.out.println("*********Given Sort type is missmatch: "+sortType);
 		}
 		
 		Thread.sleep(5000);

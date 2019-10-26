@@ -1,6 +1,8 @@
 package utilityLibrary;
 
 import org.openqa.selenium.By;
+import org.junit.After;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -22,8 +24,7 @@ public class Library {
 		driver.quit(); // driver is not != null
 		driver = null;
 	}
-	
-	
+
 	
 	public String getText(By locator) {
 		String text = driver.findElement(locator).getText();
