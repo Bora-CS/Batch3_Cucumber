@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		features = "src/test/resources/plp.feature", 
 		glue = "steps", 
 		tags = {},
-		dryRun = true)
+		dryRun = false)
 public class PLPRunner {
 
 }
