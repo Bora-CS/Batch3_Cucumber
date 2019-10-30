@@ -45,7 +45,7 @@ public class ApiLogin {
 		// and compare the status code with given code ->status
 		int actualStatus = resp.getStatusCode();
 		String errorMessage = "Status code mismatch, expecting status is: "+status+ 
-				"  expectingStatus is: "+actualStatus ;
+				"  Actual Status is: "+actualStatus ;
 		
 		
 		Assert.assertEquals(errorMessage,status, actualStatus);
