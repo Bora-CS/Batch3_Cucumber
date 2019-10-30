@@ -50,5 +50,6 @@ public class ApiLogin {
 		
 		Assert.assertEquals(errorMessage,status, actualStatus);
 		
+		System.out.println(resp.getBody().asString());
 	}
 }
