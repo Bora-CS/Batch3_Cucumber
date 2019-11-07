@@ -24,10 +24,35 @@ Feature: Login feature for api testing
       | invalid@gmail.com  |      234 |        404 |
       | john.doe@gmail.com |      123 |        400 |
       | john.doe@gmail.com |   123456 |        200 |
-      
-      
-@inClass
+
+  @inClass
   Scenario: register user by api call
     When register user by "Nafisa" "nafisa4@gmail.com" "123456" "123456"
-    Then veirfy status code 200
-		And verify name "Nafisa" and email "nafisa@gmail.com" is correct
+    Then veirfy status code 400
+  #  And verify name "Nafisa" and email "nafisa@gmail.com" is correct
+
+  @inClass
+  Scenario Outline: register user by api call
+    When register user by "<name>" "<email>" "<password>" "<password2>"
+    Then veirfy status code <statusCode>
+   # And verify name "<name>" and email "<email>" is correct
+
+    Examples: 
+      | name   | email             | password | password2 | statusCode |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |      
+      | Nafisa | nafisa4@gmail.com |   123456 |    123456 |        400 |
+                                          
+      
+      
+      
+      
+      
+      
+      
+      
