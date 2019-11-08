@@ -14,10 +14,6 @@ public class ApiLogin {
 	@Given("correct url")
 	public void correct_url() {
 
-		// prepare the URL for api testing
-		// URI -> http://ec2-3-86-91-230.compute-1.amazonaws.com:5000/
-		// URL ->http://ec2-3-86-91-230.compute-1.amazonaws.com:5000/ api/users/login
-		// create class level variable for the URI
 		api = new ApiLibrary();
 	}
 
@@ -113,6 +109,7 @@ public class ApiLogin {
 		api.setUpHeader("Authorization", token);
 
 		api.getApiCall("api/users/current");
+//		api.getApiCall("api/profile");
 
 		String bodyText = api.getBodyAsString();
 		System.out.println(bodyText);

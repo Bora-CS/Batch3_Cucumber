@@ -9,7 +9,9 @@ import io.restassured.specification.RequestSpecification;
 public class ApiLibrary {
 
 	RequestSpecification request;
+	
 	Response response;
+	
 	JSONObject JsonBody = new JSONObject();
 
 	public ApiLibrary() {
