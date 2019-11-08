@@ -38,7 +38,7 @@ public class ApiLibrary {
 	}
 	
 	public void attachBody() {
-		request.body(JsonBody.toJSONString());
+//		request.body(JsonBody.toJSONString());
 	}
 	
 	
@@ -48,6 +48,8 @@ public class ApiLibrary {
 	 **********************/
 	
 	public void postApiCall(String appendUrl) {
+		request.body(JsonBody.toJSONString());
+		
 		response = request.post(appendUrl);
 	}
 	
@@ -77,7 +79,7 @@ public class ApiLibrary {
 	}
 	
 	public String getBodyAsString() {
-		return response.getBody().asString();
+		return response.prettyPrint();
 	}
 	
 	public String getValueFromBody(String path) {

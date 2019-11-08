@@ -7,9 +7,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/getUserInfo.feature", 
+		features = "src/test/resources/", 
 		glue = "apiSteps", 
-		tags = {}, 
+		tags = {"@ClassWork"}, 
 		dryRun = false)
 public class ApiRunner {
 
