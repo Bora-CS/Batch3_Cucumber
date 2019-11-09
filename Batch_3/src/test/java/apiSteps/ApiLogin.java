@@ -1,6 +1,9 @@
 package apiSteps;
 
+import java.util.List;
+
 import org.junit.Assert;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -131,8 +134,45 @@ public class ApiLogin {
 	    System.out.println("************id: "+firstId);
 	    
 	    api.deleteApiCall("api/profile/experience/"+firstId);
-	    System.out.println(api.getBodyAsString());
 	}
+	
+	
+	@Then("delete all of user expirence from profile")
+	public void delete_all_of_user_expirence_from_profile() {
+		
+		List<String> ids = api.getListOfValueFromBody("experience._id");
+		
+		for(String id: ids) {
+			api.deleteApiCall("api/profile/experience/"+id);
+		}
+		System.out.println(api.getBodyAsString());
+		
+		
+//		String wholeId = api.getValueFromBody("experience._id");
+//		wholeId = wholeId.replace("[", "").replace("]", "");
+//		String[] ids = wholeId.split(",");
+//		
+//		for(String id : ids) {
+//			System.out.println("*********id: "+id.trim());
+//			api.deleteApiCall("api/profile/experience/"+id.trim());
+//		}
+//		
+//		System.out.println(api.getBodyAsString());
+		
+	}
+
+	@Then("veirfy all of expirence been delete")
+	public void veirfy_all_of_expirence_been_delete() {
+
+		List<String> expirences = api.getListOfValueFromBody("experience");
+		System.out.println("expirence********: "+expirences.size());
+		Assert.assertEquals(0, expirences.size());
+//		String expirence = api.getValueFromBody("experience");
+//		System.out.println("expirence********: "+expirence);
+//		
+//		Assert.assertEquals("[]", expirence);
+	}
+	
 	
 
 }

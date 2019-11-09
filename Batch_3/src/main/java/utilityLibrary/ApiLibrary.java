@@ -1,6 +1,7 @@
 package utilityLibrary;
 
 import java.io.File;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 
@@ -91,11 +92,15 @@ public class ApiLibrary {
 	}
 	
 	public String getBodyAsString() {
-		return response.prettyPrint();
+		return response.prettyPrint().toString();
 	}
 	
 	public String getValueFromBody(String path) {
 		return response.getBody().jsonPath().getString(path);
+	}
+
+	public List<String> getListOfValueFromBody(String path) {
+		return response.getBody().jsonPath().getList(path);
 	}
 	
 	
