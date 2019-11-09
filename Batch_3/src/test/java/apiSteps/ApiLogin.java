@@ -120,15 +120,19 @@ public class ApiLogin {
 		api.setUpHeader();
 		api.setUpHeader("Authorization", token);
 		
-		api.setUpBody("title", "Senior Automation Enginner");
-		api.setUpBody("company", "Bora Tech");
-		api.setUpBody("location", "Fairfax, VA");
-		api.setUpBody("from", "2017-9-15");
-		api.setUpBody("to","2018-06-30");
-		api.setUpBody("description","Nice place to work at");
+		api.postApiCall("api/profile/experience", "src/test/resources/API_Body/addExpirence.txt");
+		System.out.println(api.getBodyAsString());
 	    
 	}
 	
+	@Then("delete user expirence from profile")
+	public void delete_user_expirence_from_profile() {
+	    String firstId = api.getValueFromBody("experience[0]._id");
+	    System.out.println("************id: "+firstId);
+	    
+	    api.deleteApiCall("api/profile/experience/"+firstId);
+	    System.out.println(api.getBodyAsString());
+	}
 	
 
 }

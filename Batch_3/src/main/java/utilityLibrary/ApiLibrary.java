@@ -56,16 +56,20 @@ public class ApiLibrary {
 	}
 	
 	public void postApiCall(String appendUrl, String filePath) {
-		request.body(JsonBody.toJSONString());
+		File bodyFile = new File(filePath);
+		request.body(bodyFile);
 		
 		response = request.post(appendUrl);
 	}
 	
 	public void getApiCall(String appendUrl) {
+		request.body(JsonBody.toJSONString());
 		response = request.get(appendUrl);
 	}
 	
-	
+	public void deleteApiCall(String appendUrl) {
+		response = request.delete(appendUrl);
+	}
 	
 	
 	
