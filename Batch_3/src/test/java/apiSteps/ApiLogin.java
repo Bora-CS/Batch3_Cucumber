@@ -1,9 +1,6 @@
 package apiSteps;
 
-import java.lang.reflect.Array;
-
 import org.junit.Assert;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -117,7 +114,20 @@ public class ApiLogin {
 
 	}
 	
-	
+	@When("user update expirence in profile")
+	public void user_update_expirence_in_profile() {
+	    String token = api.getValueFromBody("token");
+		api.setUpHeader();
+		api.setUpHeader("Authorization", token);
+		
+		api.setUpBody("title", "Senior Automation Enginner");
+		api.setUpBody("company", "Bora Tech");
+		api.setUpBody("location", "Fairfax, VA");
+		api.setUpBody("from", "2017-9-15");
+		api.setUpBody("to","2018-06-30");
+		api.setUpBody("description","Nice place to work at");
+	    
+	}
 	
 	
 

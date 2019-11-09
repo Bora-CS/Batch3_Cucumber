@@ -1,5 +1,7 @@
 package utilityLibrary;
 
+import java.io.File;
+
 import org.json.simple.JSONObject;
 
 import io.restassured.RestAssured;
@@ -53,6 +55,12 @@ public class ApiLibrary {
 		response = request.post(appendUrl);
 	}
 	
+	public void postApiCall(String appendUrl, String filePath) {
+		request.body(JsonBody.toJSONString());
+		
+		response = request.post(appendUrl);
+	}
+	
 	public void getApiCall(String appendUrl) {
 		response = request.get(appendUrl);
 	}
@@ -84,6 +92,16 @@ public class ApiLibrary {
 	
 	public String getValueFromBody(String path) {
 		return response.getBody().jsonPath().getString(path);
+	}
+	
+	
+	/**********************
+	 * Utility
+	 **********************/
+	
+	public File readBodyFile(String path) {
+		File bodyFile = new File(path);
+		return bodyFile;
 	}
 	
 

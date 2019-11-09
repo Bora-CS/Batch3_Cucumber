@@ -1,0 +1,9 @@
+{
+	"current": false,
+	"title": "Cashier", 
+	"company": "Sephora",
+	"location": "Tysons, VA",
+	"from": "2011-07-01",
+	"to" : "2012-07-01",
+	"description": "Trying to be a make up artist"
+}
