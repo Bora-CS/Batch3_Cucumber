@@ -19,7 +19,8 @@ public class PostCall {
 
 		/************* Test 1 ****************/
 
-		// sarah, sarah@gmail.com, test1234, test ->result password is incorrct
+		// name    email           password   password2                        statusCode
+		// sarah, sarah@gmail.com, test1234, test ->result password is incorrct 400
 
 
 		
