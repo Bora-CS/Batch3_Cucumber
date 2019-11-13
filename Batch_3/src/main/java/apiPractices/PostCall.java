@@ -14,7 +14,7 @@ public class PostCall {
 	public static void main(String arg[]) {
 
 		// create user by api by below combination of data
-		HashMap body = new HashMap<String, String>();
+		HashMap expectedResult = new HashMap<String, String>();
 		HashMap testData = new HashMap<String, String>();
 
 		/************* Test 1 ****************/
@@ -26,7 +26,15 @@ public class PostCall {
 		
 		
 		
+		expectedResult.put("password2", "Passwords must match");
 		
+		testData.put("name", "sarah");
+		testData.put("email", "sarah@gmail.com");
+		testData.put("password", "test1234");
+		testData.put("password2", "test");
+		testData.put("statusCode", "400");
+
+		createUser(testData, expectedResult);
 		
 		
 		
@@ -43,16 +51,16 @@ public class PostCall {
 		
 		/************* Test 2 ****************/
 		// sarah, sarahgmail.com, test1234, test1234 -> email is invalid
-		body = new HashMap<String, String>();
-		body.put("email", "Email is invalid");
-		createUser("sarah", "sarahgmail.com", "test1234", "test1234", 400, body);
+		expectedResult = new HashMap<String, String>();
+		expectedResult.put("email", "Email is invalid");
+		createUser("sarah", "sarahgmail.com", "test1234", "test1234", 400, expectedResult);
 
 		/************* Test 3 ****************/
 		// sarah, sarah@gmail.com, t, t -> password is too short
-		body = new HashMap<String, String>();
-		body.put("password", "Password must be at least 6 characters");
+		expectedResult = new HashMap<String, String>();
+		expectedResult.put("password", "Password must be at least 6 characters");
 
-		createUser("sarah", "sarah@gmail.com", "t", "t", 400, body);
+		createUser("sarah", "sarah@gmail.com", "t", "t", 400, expectedResult);
 
 		/************* Test 4 ****************/
 		// sarah, sarah@gmail.com, test1234, test1234 -> succesfully passed 200
