@@ -1,0 +1,5 @@
+Description: this file should follow by fixed field: name,email,password,password2 
+sarah, sarah@gmail.com, test1234, test
+sarah, sarahgmail.com, test1234, test1234
+sarah, sarah@gmail.com, t, t
+sarah, sarah@gmail.com, test1234, test1234
