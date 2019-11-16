@@ -1,5 +1,5 @@
-Description: this file should follow by fixed field: name,email,password,password2 
-sarah, sarah@gmail.com, test1234, test
-sarah, sarahgmail.com, test1234, test1234
-sarah, sarah@gmail.com, t, t
-sarah, sarah@gmail.com, test1234, test1234
+Description: this file should follow by fixed field: name,email,password,password2, StatusCode, expectingKey, expectingValue
+sarah, sarah@gmail.com, test1234, test, 400, password2, Passwords must match
+sarah, sarahgmail.com, test1234, test1234,400, email, Email is invalid
+sarah, sarah@gmail.com, t, t,400, password, Password must be at least 6 characters
+sarah, sarah@gmail.com, test1234, test1234, 400, email, Email already exists

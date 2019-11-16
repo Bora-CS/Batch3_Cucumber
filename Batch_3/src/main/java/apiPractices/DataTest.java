@@ -8,16 +8,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+import org.junit.Assert;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
 public class DataTest {
 
 	public static void main(String[] args) {
-		
-		for(HashMap temp: readData()) {
-			System.out.println("map in main method: "+temp.toString()+"\n");
+		int i = 1;
+		for (HashMap temp : readData()) {
+			createUser(temp);
+			System.out.println("Test Case -" + i + " PASS");
+			i++;
 		}
-		
-		
-		
+
 	}
 
 	// TestData -- sarah, sarah@gmail.com, test1234, t
@@ -40,6 +47,9 @@ public class DataTest {
 				testData.put("email", line.split(",")[1].trim());
 				testData.put("password", line.split(",")[2].trim());
 				testData.put("password2", line.split(",")[3].trim());
+				testData.put("statusCode", line.split(",")[4].trim());
+				testData.put("expectingKey", line.split(",")[5].trim());
+				testData.put("expectingValue", line.split(",")[6].trim());
 //				System.out.println("map in loop: "+testData.toString()+"\n");
 				listOfMap.add(testData);
 			}
@@ -61,6 +71,34 @@ public class DataTest {
 		}
 
 		return listOfMap;
+	}
+
+	@SuppressWarnings({ "unused", "unchecked" })
+	private static void createUser(HashMap<String, String> testData) {
+
+		RestAssured.baseURI = "http://ec2-3-86-91-230.compute-1.amazonaws.com:5000/";
+		RequestSpecification request = RestAssured.given();
+
+		request.headers("Content-type", "Application/json");
+
+		JSONObject obj = new JSONObject();
+		obj.put("name", testData.get("name"));
+		obj.put("email", testData.get("email"));
+		obj.put("password", testData.get("password"));
+		obj.put("password2", testData.get("password2"));
+
+		request.body(obj.toJSONString());
+
+		Response result = request.post("api/users/register");
+
+		String actualStatusCode = result.getStatusCode() + "";
+
+		Assert.assertEquals("****fail" + result.getBody().asString(), testData.get("statusCode"), actualStatusCode);
+
+		String actualResponseValue = result.getBody().jsonPath().getString(testData.get("expectingKey"));
+
+		Assert.assertEquals("****fail" + result.getBody().asString(), testData.get("expectingValue"),
+				actualResponseValue);
 	}
 
 }
